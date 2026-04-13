@@ -23,6 +23,7 @@ How the system works:
 -> The architecture is split into publisher (Raspberry Pi) and subscriber (UI + alarm), communicating through ZeroMQ PUB/SUB model.
 
 PUBLISHER:
+
 -> MAX30102 driver reads IR and RED PPG signals over I2C.
 -> Heartrate monitor detects finger presence and computes BPM and SpO2 using the hrcalc algorithm. 
 -> pub.py publishes raw IR data every 0.1s for plotting, as well as BPM and SpO2 values at a lower rate every 15 seconds.
