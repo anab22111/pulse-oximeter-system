@@ -25,11 +25,14 @@ PUBLISHER: -> MAX30102 driver reads IR and RED PPG signals over I2C. -> Heartrat
 SUBSCRIBER:
 
 subRaw.py:
+
 -> Receives raw IR data.
 -> Streams it to the web interface for real-time plotting.
 subBPM.py:
+
 -> Receives BPM values.
 -> Triggers the alarm when the BPM drops to zero.
 -> Immediately stops the alarm when BPM > 0.
 -> Forwards the BPM to the web application.
+
 WEB INTERFACE: -> Displays real-time PPG waveform, SpO2 and BPM.
