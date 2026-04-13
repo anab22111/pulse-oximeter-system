@@ -16,11 +16,16 @@ How to run the program:
 3. On Linux open subscriber and run with commands in order:
 	python3 subSPO2.py
 	python3 subBPM.py
+
 How the system works:
 
--> The system measures heartrate and SpO2 using the MAX30102 sensor processes the signal and displays the data via web interface. -> The architecture is split into publisher (Raspberry Pi) and subscriber (UI + alarm), communicating through ZeroMQ PUB/SUB model.
+-> The system measures heartrate and SpO2 using the MAX30102 sensor processes the signal and displays the data via web interface.
+-> The architecture is split into publisher (Raspberry Pi) and subscriber (UI + alarm), communicating through ZeroMQ PUB/SUB model.
 
-PUBLISHER: -> MAX30102 driver reads IR and RED PPG signals over I2C. -> Heartrate monitor detects finger presence and computes BPM and SpO2 using the hrcalc algorithm. -> pub.py publishes raw IR data every 0.1s for plotting, as well as BPM and SpO2 values at a lower rate every 15 seconds.
+PUBLISHER:
+-> MAX30102 driver reads IR and RED PPG signals over I2C.
+-> Heartrate monitor detects finger presence and computes BPM and SpO2 using the hrcalc algorithm. 
+-> pub.py publishes raw IR data every 0.1s for plotting, as well as BPM and SpO2 values at a lower rate every 15 seconds.
 
 SUBSCRIBER:
 
@@ -28,6 +33,7 @@ subRaw.py:
 
 -> Receives raw IR data.
 -> Streams it to the web interface for real-time plotting.
+
 subBPM.py:
 
 -> Receives BPM values.
